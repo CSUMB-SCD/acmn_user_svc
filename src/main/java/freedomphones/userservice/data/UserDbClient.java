@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 @Repository
 public class UserDbClient {
     public String getUserData(String username){
-        final String uri = "https://freedomphones-zuul-svc.herokuapp.com/user-db-service/userExist/{username}";
+        final String uri = "https://freedomphones-zuul-svc.herokuapp.com/user-db-service/getUser/{username}";
         RestTemplate restTemplate = new RestTemplate();
         Map<String, String> params = new HashMap<String, String>();
         params.put("username", username);
