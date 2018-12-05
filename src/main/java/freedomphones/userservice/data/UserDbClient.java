@@ -7,6 +7,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.client.RestTemplate;
 
+import freedomphones.userservice.Login;
+import freedomphones.userservice.users.User;
+
 
 @Repository
 public class UserDbClient {
@@ -15,6 +18,12 @@ public class UserDbClient {
         RestTemplate restTemplate = new RestTemplate();
         Map<String, String> params = new HashMap<String, String>();
         params.put("username", username);
-        return restTemplate.getForObject(uri, ResponseEntity.class, params);
+        User user = restTemplate.getForObject(uri, User.class, params);
+        Login login = new Login();
+        if(user == null){
+            login.loginFailed();
+        }
+        login.loginSuccess();
+        return login.getStatus();
     }
 }
