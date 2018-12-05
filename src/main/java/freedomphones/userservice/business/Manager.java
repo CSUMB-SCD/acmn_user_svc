@@ -3,6 +3,7 @@ package freedomphones.userservice.business;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import freedomphones.userservice.data.UserDbClient;
@@ -11,7 +12,7 @@ import freedomphones.userservice.data.UserDbClient;
 public class Manager {
     @Autowired
     UserDbClient userDbClient;
-    public String getUser(String username) {
+    public ResponseEntity<?> getUser(String username) {
         return userDbClient.getUserData(username); 
     }
 }
