@@ -14,7 +14,7 @@ import freedomphones.userservice.business.Manager;
 public class UserController{
     @Autowired
     Manager manager;
-    @GetMapping(value = "/getUser/{username}", produces="application/json")
+    @GetMapping(value = "/getUser/{username}")
     @ResponseBody
     public ResponseEntity<?> getUser(@PathVariable String username){
         return manager.getUser(username);

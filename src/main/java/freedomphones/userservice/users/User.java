@@ -1,12 +1,16 @@
 package freedomphones.userservice.users;
 
-public class User{
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class User {
     private String id;
     private String username;
     private String password;
     private Double funds;
 
-    public User(String username, String password, Double funds){
+    @JsonCreator
+    public User(@JsonProperty("username") String username, @JsonProperty("password") String password, @JsonProperty("funds") Double funds){
         this.username = username;
         this.password = password;
         this.funds = funds;
