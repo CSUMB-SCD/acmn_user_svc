@@ -23,7 +23,9 @@ public class UserDbClient {
         if(user == null){
             login.loginFailed();
         }
-        login.loginSuccess();
+        else{
+            login.loginSuccess();
+        }
         return login.getStatus();
     }
 }
