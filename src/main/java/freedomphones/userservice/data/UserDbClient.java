@@ -36,4 +36,12 @@ public class UserDbClient {
         Double funds = restTemplate.getForObject(uri, Double.class, params);
         return funds;
     }
+    public String removeFunds(String username, String amount){
+        final String uri = "https://freedomphones-zuul-svc.herokuapp.com/user-db-service/removeFunds/{username}/{amount}";
+        RestTemplate restTemplate = new RestTemplate();
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("username", username);
+        params.put("amount", amount);
+        return restTemplate.getForObject(uri, String.class, params);
+    }
 }

@@ -19,4 +19,7 @@ public class Manager {
         Double funds = userDbClient.getFunds(username);
         return total <= funds;
     }
+    public String removeFunds(String username, String amount){
+        return userDbClient.removeFunds(username, amount);
+    }
 }

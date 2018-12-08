@@ -24,4 +24,8 @@ public class UserController{
     public Boolean hasFunds(@PathVariable String username, @PathVariable Double total){
         return manager.hasFunds(username, total);
     }
+    @GetMapping(value = "/removeFunds/{username}/{amount}")
+    public String removeFunds(@PathVariable String username, @PathVariable String amount){
+        return manager.removeFunds(username, amount);
+    }
 }
