@@ -28,4 +28,12 @@ public class UserDbClient {
         }
         return login.getStatus();
     }
+    public Double getFunds(String username){
+        final String uri = "https://freedomphones-zuul-svc.herokuapp.com/user-db-service/getFunds/{username}";
+        RestTemplate restTemplate = new RestTemplate();
+        Map<String, String> params = new HashMap<String, String>();
+        params.put("username", username);
+        Double funds = restTemplate.getForObject(uri, Double.class, params);
+        return funds;
+    }
 }

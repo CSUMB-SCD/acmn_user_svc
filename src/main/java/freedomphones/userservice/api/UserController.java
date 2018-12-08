@@ -19,4 +19,9 @@ public class UserController{
     public ResponseEntity<?> getUser(@PathVariable String username){
         return manager.getUser(username);
     }
+    @ResponseBody
+    @GetMapping(value = "/hasFunds/{username}/{total}")
+    public Boolean hasFunds(@PathVariable String username, @PathVariable Double total){
+        return manager.hasFunds(username, total);
+    }
 }

@@ -15,4 +15,8 @@ public class Manager {
     public ResponseEntity<?> getUser(String username) {
         return userDbClient.getUserData(username); 
     }
+    public Boolean hasFunds(String username, Double total){
+        Double funds = userDbClient.getFunds(username);
+        return total <= funds;
+    }
 }
